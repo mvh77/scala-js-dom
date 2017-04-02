@@ -22,10 +22,10 @@ import org.scalajs.dom.raw.{DOMError, Event, EventTarget}
 class MediaStream() extends EventTarget {
 
   /**
-    * A Boolean value that returns true if the MediaStream is active, or false otherwise.
-    *
-    * MDN
-    */
+   * A Boolean value that returns true if the MediaStream is active, or false otherwise.
+   *
+   * MDN
+   */
   val active: Boolean = js.native
 
   /**
@@ -83,12 +83,12 @@ class MediaStream() extends EventTarget {
   def getTrackById(trackId: String): MediaStreamTrack = js.native
 
   /**
-    * Returns a list of all MediaStreamTrack objects stored in the MediaStream object,
-    * regardless of the value of the kind attribute. The order is not defined, and may
-    * not only vary from one browser to another, but also from one call to another.
-    *
-    * MDN
-    */
+   * Returns a list of all MediaStreamTrack objects stored in the MediaStream object,
+   * regardless of the value of the kind attribute. The order is not defined, and may
+   * not only vary from one browser to another, but also from one call to another.
+   *
+   * MDN
+   */
   def getTracks(): js.Array[MediaStreamTrack] = js.native
 
   /**
@@ -279,41 +279,42 @@ trait MediaStreamTrack extends EventTarget {
   var onended: js.Function1[Event, Any] = js.native
 
   /**
-    * Returns a MediaTrackConstraints object containing the currently
-    * set constraints for the track; the returned value matches the
-    * constraints last set using applyConstraints().
-    *
-    * MDN
-    */
+   * Returns a MediaTrackConstraints object containing the currently
+   * set constraints for the track; the returned value matches the
+   * constraints last set using applyConstraints().
+   *
+   * MDN
+   */
   def getConstraints(): MediaTrackConstraints = js.native
 
   /**
-    * Returns the a list of constrainable properties available for the
-    * MediaStreamTrack.
-    *
-    * MDN
-    */
+   * Returns the a list of constrainable properties available for the
+   * MediaStreamTrack.
+   *
+   * MDN
+   */
   def getCapabilities(): js.Any = js.native
 
   /**
-    * Returns a duplicate of the MediaStreamTrack.
-    *
-    * MDN
-    */
+   * Returns a duplicate of the MediaStreamTrack.
+   *
+   * MDN
+   */
   override def clone(): MediaStreamTrack = js.native
 
   /**
-    * Lets the application specify the ideal and/or ranges of acceptable values
-    * for any number of the available constrainable properties of the MediaStreamTrack.
-    */
-  def applyConstraints(constraints: MediaTrackConstraints): js.Promise[Unit] = js.native
+   * Lets the application specify the ideal and/or ranges of acceptable values
+   * for any number of the available constrainable properties of the MediaStreamTrack.
+   */
+  def applyConstraints(
+      constraints: MediaTrackConstraints): js.Promise[Unit] = js.native
 
   /**
-    * Returns a MediaTrackSettings object containing the current values of
-    * each of the MediaStreamTrack's constrainable properties.
-    *
-    * MDN
-    */
+   * Returns a MediaTrackSettings object containing the current values of
+   * each of the MediaStreamTrack's constrainable properties.
+   *
+   * MDN
+   */
   def getSettings(): js.Any = js.native
 
   /**
@@ -345,20 +346,20 @@ trait MediaTrackSettings extends js.Object {
 object MediaTrackSettings {
   @inline
   def apply(
-             width: js.UndefOr[Double] = js.undefined,
-             height: js.UndefOr[Double] = js.undefined,
-             aspectRatio: js.UndefOr[Double] = js.undefined,
-             frameRate: js.UndefOr[Double] = js.undefined,
-             facingMode: js.UndefOr[String] = js.undefined,
-             volume: js.UndefOr[Double] = js.undefined,
-             sampleRate: js.UndefOr[Double] = js.undefined,
-             sampleSize: js.UndefOr[Double] = js.undefined,
-             echoCancellation: js.UndefOr[Boolean] = js.undefined,
-             latency: js.UndefOr[Double] = js.undefined,
-             channelCount: js.UndefOr[Double] = js.undefined,
-             deviceId: js.UndefOr[String] = js.undefined,
-             groupId: js.UndefOr[String] = js.undefined
-           ): MediaTrackConstraintSet = {
+      width: js.UndefOr[Double] = js.undefined,
+      height: js.UndefOr[Double] = js.undefined,
+      aspectRatio: js.UndefOr[Double] = js.undefined,
+      frameRate: js.UndefOr[Double] = js.undefined,
+      facingMode: js.UndefOr[String] = js.undefined,
+      volume: js.UndefOr[Double] = js.undefined,
+      sampleRate: js.UndefOr[Double] = js.undefined,
+      sampleSize: js.UndefOr[Double] = js.undefined,
+      echoCancellation: js.UndefOr[Boolean] = js.undefined,
+      latency: js.UndefOr[Double] = js.undefined,
+      channelCount: js.UndefOr[Double] = js.undefined,
+      deviceId: js.UndefOr[String] = js.undefined,
+      groupId: js.UndefOr[String] = js.undefined
+  ): MediaTrackConstraintSet = {
     val result = js.Dynamic.literal()
     width.foreach(result.width = _)
     height.foreach(result.height = _)
@@ -605,67 +606,68 @@ object MediaDeviceInfo {
 trait NavigatorMediaStream extends js.Object {
 
   def getUserMedia(constraints: MediaStreamConstraints,
-                   success: js.Function1[MediaStream, Any],
-                   error: js.Function1[DOMError, Any]): Unit = js.native
+      success: js.Function1[MediaStream, Any],
+      error: js.Function1[DOMError, Any]): Unit = js.native
 }
 
 /**
-  * The MediaDevices interface provides access to connected media input devices
-  * like cameras and microphones, as well as screen sharing. In essence, it
-  * lets you obtain access to any hardware source of media data.
-  *
-  * MDN
-  */
+ * The MediaDevices interface provides access to connected media input devices
+ * like cameras and microphones, as well as screen sharing. In essence, it
+ * lets you obtain access to any hardware source of media data.
+ *
+ * MDN
+ */
 @js.native
 trait MediaDevices extends EventTarget {
 
   /**
-    * The event handler for the devicechange event. This event is
-    * delivered to the MediaDevices object when a media input or
-    * output device is attached to or removed from the user's computer.
-    *
-    * MDN
-    */
+   * The event handler for the devicechange event. This event is
+   * delivered to the MediaDevices object when a media input or
+   * output device is attached to or removed from the user's computer.
+   *
+   * MDN
+   */
   var ondevicechange: js.Function1[Event, Any] = js.native
 
   /**
-    * Obtains an array of information about the media input and output devices
-    * available on the system.
-    *
-    * MDN
-    */
+   * Obtains an array of information about the media input and output devices
+   * available on the system.
+   *
+   * MDN
+   */
   def enumerateDevices(): js.Promise[js.Array[MediaDeviceInfo]] = js.native
 
   /**
-    * Returns an object conforming to MediaTrackSupportedConstraints indicating
-    * which constrainable properties are supported on the MediaStreamTrack
-    * interface. See "Capabilities and constraints" in Media Capture and
-    * Streams API (Media Streams) to learn more about constraints and how to use them.
-    *
-    * MDN
-    */
+   * Returns an object conforming to MediaTrackSupportedConstraints indicating
+   * which constrainable properties are supported on the MediaStreamTrack
+   * interface. See "Capabilities and constraints" in Media Capture and
+   * Streams API (Media Streams) to learn more about constraints and how to use them.
+   *
+   * MDN
+   */
   def getSupportedConstraints(): MediaTrackSupportedConstraints = js.native
 
   /**
-    * With the user's permission through a prompt, turns on a camera or
-    * screensharing and/or a microphone on the system and provides a
-    * MediaStream containing a video track and/or an audio track with
-    * the input.
-    *
-    * MDN
-    */
-  def getUserMedia(constraints: MediaStreamConstraints): js.Promise[MediaStream] = js.native
+   * With the user's permission through a prompt, turns on a camera or
+   * screensharing and/or a microphone on the system and provides a
+   * MediaStream containing a video track and/or an audio track with
+   * the input.
+   *
+   * MDN
+   */
+  def getUserMedia(
+      constraints: MediaStreamConstraints): js.Promise[MediaStream] = js.native
 
 }
 
 /**
-  * The MediaTrackSupportedConstraints dictionary establishes the list of constrainable properties
-  * recognized by the user agent or browser in its implementation of the MediaStreamTrack object.
-  * An object conforming to MediaTrackSupportedConstraints is returned by
-  * MediaDevices.getSupportedConstraints().
-  *
-  * MDN
-  */
+ * The MediaTrackSupportedConstraints dictionary establishes the list of constrainable properties
+ * recognized by the user agent or browser in its implementation of the MediaStreamTrack object.
+ * An object conforming to MediaTrackSupportedConstraints is returned by
+ * MediaDevices.getSupportedConstraints().
+ *
+ * MDN
+ */
 @js.native
 trait MediaTrackSupportedConstraints extends js.Object {
   var width: Boolean = js.native
