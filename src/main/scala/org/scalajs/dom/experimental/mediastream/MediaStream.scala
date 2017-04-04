@@ -326,56 +326,21 @@ trait MediaStreamTrack extends EventTarget {
   def stop(): Unit = js.native
 }
 
-@js.native
+@ScalaJSDefined
 trait MediaTrackSettings extends js.Object {
-  var width: Double = js.native
-  var height: Double = js.native
-  var aspectRatio: Double = js.native
-  var frameRate: Double = js.native
-  var facingMode: String = js.native
-  var volume: Double = js.native
-  var sampleRate: Double = js.native
-  var sampleSize: Double = js.native
-  var echoCancellation: Boolean = js.native
-  var latency: Double = js.native
-  var channelCount: Double = js.native
-  var deviceId: String = js.native
-  var groupId: String = js.native
-}
-
-object MediaTrackSettings {
-  @inline
-  def apply(
-      width: js.UndefOr[Double] = js.undefined,
-      height: js.UndefOr[Double] = js.undefined,
-      aspectRatio: js.UndefOr[Double] = js.undefined,
-      frameRate: js.UndefOr[Double] = js.undefined,
-      facingMode: js.UndefOr[String] = js.undefined,
-      volume: js.UndefOr[Double] = js.undefined,
-      sampleRate: js.UndefOr[Double] = js.undefined,
-      sampleSize: js.UndefOr[Double] = js.undefined,
-      echoCancellation: js.UndefOr[Boolean] = js.undefined,
-      latency: js.UndefOr[Double] = js.undefined,
-      channelCount: js.UndefOr[Double] = js.undefined,
-      deviceId: js.UndefOr[String] = js.undefined,
-      groupId: js.UndefOr[String] = js.undefined
-  ): MediaTrackConstraintSet = {
-    val result = js.Dynamic.literal()
-    width.foreach(result.width = _)
-    height.foreach(result.height = _)
-    aspectRatio.foreach(result.aspectRatio = _)
-    frameRate.foreach(result.frameRate = _)
-    facingMode.foreach(result.facingMode = _)
-    volume.foreach(result.volume = _)
-    sampleRate.foreach(result.sampleRate = _)
-    sampleSize.foreach(result.sampleSize = _)
-    echoCancellation.foreach(result.echoCancellation = _)
-    latency.foreach(result.latency = _)
-    channelCount.foreach(result.channelCount = _)
-    deviceId.foreach(result.deviceId = _)
-    groupId.foreach(result.groupId = _)
-    result.asInstanceOf[MediaTrackConstraintSet]
-  }
+  var width: js.UndefOr[Double] = js.undefined
+  var height: js.UndefOr[Double] = js.undefined
+  var aspectRatio: js.UndefOr[Double] = js.undefined
+  var frameRate: js.UndefOr[Double] = js.undefined
+  var facingMode: js.UndefOr[String] = js.undefined
+  var volume: js.UndefOr[Double] = js.undefined
+  var sampleRate: js.UndefOr[Double] = js.undefined
+  var sampleSize: js.UndefOr[Double] = js.undefined
+  var echoCancellation: js.UndefOr[Boolean] = js.undefined
+  var latency: js.UndefOr[Double] = js.undefined
+  var channelCount: js.UndefOr[Double] = js.undefined
+  var deviceId: js.UndefOr[String] = js.undefined
+  var groupId: js.UndefOr[String] = js.undefined
 }
 
 @js.native
@@ -668,19 +633,19 @@ trait MediaDevices extends EventTarget {
  *
  * MDN
  */
-@js.native
+@ScalaJSDefined
 trait MediaTrackSupportedConstraints extends js.Object {
-  var width: Boolean = js.native
-  var height: Boolean = js.native
-  var aspectRatio: Boolean = js.native
-  var frameRate: Boolean = js.native
-  var facingMode: Boolean = js.native
-  var volume: Boolean = js.native
-  var sampleRate: Boolean = js.native
-  var sampleSize: Boolean = js.native
-  var echoCancellation: Boolean = js.native
-  var latency: Boolean = js.native
-  var channelCount: Boolean = js.native
-  var deviceId: Boolean = js.native
-  var groupId: Boolean = js.native
+  var width: js.UndefOr[Boolean] = js.undefined
+  var height: js.UndefOr[Boolean] = js.undefined
+  var aspectRatio: js.UndefOr[Boolean] = js.undefined
+  var frameRate: js.UndefOr[Boolean] = js.undefined
+  var facingMode: js.UndefOr[Boolean] = js.undefined
+  var volume: js.UndefOr[Boolean] = js.undefined
+  var sampleRate: js.UndefOr[Boolean] = js.undefined
+  var sampleSize: js.UndefOr[Boolean] = js.undefined
+  var echoCancellation: js.UndefOr[Boolean] = js.undefined
+  var latency: js.UndefOr[Boolean] = js.undefined
+  var channelCount: js.UndefOr[Boolean] = js.undefined
+  var deviceId: js.UndefOr[Boolean] = js.undefined
+  var groupId: js.UndefOr[Boolean] = js.undefined
 }
